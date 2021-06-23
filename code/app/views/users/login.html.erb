@@ -1,0 +1,11 @@
+<h1>欢迎登录</h1>
+<h2><%= alert %></h2>
+<%= form_with url: do_login_users_path do %>
+  <p>
+  用户名: <%= text_field_tag :username %>
+  </p>
+  <p>
+  密码: <%= password_field_tag :password %>
+  </p>
+  <%= submit_tag '登录' %>
+<% end %>

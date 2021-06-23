@@ -1,0 +1,42 @@
+<div class="col-md-6 col-md-offset-3" style="background-color: #f7f7f8; border-radius: 0.5em;margin-top:10px;">
+  <h2 align="center">Add Question</h2>
+  <div id="new-question-tip">
+    <strong>Tips on getting good answers quickly</strong>
+    <ul>
+      <li>Make sure your question has not been asked already</li>
+      <li>Keep your question short and to the point</li>
+      <li>Double-check grammar and spelling</li>
+    </ul>
+  </div>
+  <%= form_with(model: @question, local: true) do |form| %>
+    <% if @question.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+        <ul>
+          <% @question.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <br>
+    <div class="form-group" style="margin-left:1em;margin-right: 1em">
+      <%#= form.label :title %>
+      <%= form.text_field :title ,class: "form-control",placeholder: "Write your question title here."%>
+    </div>
+
+    <div class="form-group" style="margin-left:1em;margin-right: 1em">
+      <%#= form.label :content %>
+      <%= form.text_area :content  ,rows: 6 ,class: "form-control",placeholder: "Write your question details here."%>
+    </div>
+
+    <div class="form-group" style="text-align: right;margin-left:1em;margin-right: 1em">
+      <%= link_to 'cancel', :back ,style: "color: #636466;"%> &nbsp;
+      <%= form.submit value: "Add question",class: "btn btn-primary"%>
+    </div>
+  <% end %>
+
+
+</div>
+

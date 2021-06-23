@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @answer.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_answer_path(@answer.question_id,@answer.id) %> |
+<%= link_to 'Back', question_answers_path(@answer.question_id) %>
+
+
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @answer.comments.each do |comment| %>
+    <tr>
+      <td><%= comment.content %></td>
+      <td><%= link_to 'Show', question_answer_comment_path(comment.answer.question_id, comment.answer.id,comment.id) %></td>
+      <td><%= link_to 'Edit', edit_question_answer_comment_path(comment.answer.question_id, comment.answer.id,comment.id) %></td>
+      <td><%= link_to 'Destroy', question_answer_comment_path(comment.answer.question_id, comment.answer.id,comment.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<%= form_for ([@answer.question,@answer, Comment.new]) do |f| %>
+  <p>
+    <%= f.label :content, "New Comment" %> <br />
+    <%= f.text_area :content, :rows => 5 %>
+  </p>
+  <p><%= f.submit "Add Comment" %></p>
+<% end %>
+

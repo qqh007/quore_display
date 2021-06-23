@@ -1,0 +1,36 @@
+<style>
+    body {
+        background-color: rgb(241, 242, 242);
+    !important;
+    }
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<h1 align="center">My Questions</h1>
+
+<div class="col-md-8 col-md-offset-2">
+  <% current_user.questions.each do |question| %>
+    <div style="margin: 1em;background-color: #fff;padding:15px">
+      <h3><%= link_to question.title, question %></h3>
+      <hr>
+      <div style="font-size: larger">
+        <%= question.content %>
+      </div>
+      <div class="col-md-1">
+        <%= link_to 'view', question %>
+      </div>
+      <div class="col-md-2">
+        <%= link_to 'Edit', edit_question_path(question) %>
+      </div>
+
+      <div class="col-md-2 col-md-offset-7">
+        <%= link_to 'Delete', question, method: :delete, data: {confirm: 'Are you sure?'}, style: "text-align:right;" %>
+      </div>
+      <div style="height: 0.8em">
+
+      </div>
+    </div>
+  <% end %>
+</div>
+

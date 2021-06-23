@@ -1,0 +1,63 @@
+<style>
+    body {
+        background-color: rgb(241, 242, 242);
+    !important;
+    }
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<h1 align="center">Quore</h1>
+<div class="col-md-8 col-md-offset-2">
+  <% @questions.each do |question| %>
+    <div style="margin: 1em;background-color: #fff;padding:15px">
+      <h3><%= link_to question.title, question %></h3>
+      <hr>
+      <div style="font-size: larger">
+        <%= question.content%>
+      </div>
+      <%= link_to 'view', question %>
+    </div>
+  <% end %>
+</div>
+
+
+
+<%# if current_user %>
+<!--  <table class="table">-->
+<!--    <thead>-->
+<!--      <tr>-->
+<!--        <th>id</th>-->
+<!--        <th>username</th>-->
+<!--        <th>password</th>-->
+<!--        <th>email</th>-->
+<!--        <th>nickname</th>-->
+<!--        <th>intro</th>-->
+<!--      </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr>-->
+<!--      <td>-->
+        <%#= current_user.id %>
+<!--      </td>-->
+<!--      <td>-->
+        <%#= current_user.username %>
+<!--      </td>-->
+<!--      <td>-->
+        <%#= current_user.password %>
+<!--      </td>-->
+<!--      <td>-->
+        <%#= current_user.email %>
+<!--      </td>-->
+<!--      <td>-->
+        <%#= current_user.nickname %>
+<!--      </td>-->
+<!--      <td>-->
+        <%#= current_user.introduction %>
+<!--      </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+
+<!--  </table>-->
+<%# end %>
+
